@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vanilla To Do</title>
+  </head>
+
+  <body>
+    <header>
+      <h2>To Do</h2>
+    </header>
+
+    <nav>
+      <button class="dateButton" id="prev"></button>
+      <span id="currentDate"></span>
+      <button class="dateButton" id="next"></button>
+    </nav>
+
+    <main>
+      <form>
+        <input
+          id="todoInput"
+          type="text"
+          placeholder="오늘의 할 일을 적어주세요!"
+        />
+        <span class="count" id="countLabel">0개</span>
+        <button class="submitButton" type="submit">등록</button>
+      </form>
+
+      <div>
+        <ul id="todoList"></ul>
+      </div>
+    </main>
+  </body>
+</html>
