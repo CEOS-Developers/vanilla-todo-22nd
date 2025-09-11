@@ -3,18 +3,36 @@
   <head>
     <title>TO DO LIST</title>
     <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
-      <div class="todo-header">
-        <h1>투두리스트</h1>
-        <p id="date"></p>
-      </div>
-      <div class="todo-input">
-        <input id="todo-input" type="text" placeholder="할일을 입력하세요" />
-        <button id="add-btn">추가</button>
-      </div>
-      <ul id="todo-list" class="todo-list"></ul>
+      <header>
+        <h1>투두 리스트</h1>
+      </header>
+
+      <main>
+        <section class="date">
+          <button id="prev">◀</button>
+          <p id="date"></p>
+          <button id="next">▶</button>
+        </section>
+
+        <section class="todo-block">
+          <ul id="todo-list" class="todo-list"></ul>
+        </section>
+      </main>
+
+      <footer class="todo-input">
+        <button id="add-btn">
+          <img src="asset/addButton.png" />
+        </button>
+        <input
+          id="todo-input"
+          type="text"
+          placeholder="할 일을 입력해주세요. . !"
+        />
+      </footer>
     </div>
   </body>
   <script src="script.js"></script>
