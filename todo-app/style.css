@@ -11,6 +11,18 @@ body {
 }
 
 .date {
+  justify-content: center;
+}
+
+.todo-block {
+  flex: 1;
+  width: 100%;
+  max-height: calc(100vh - 250px);
+  overflow-y: auto;
+  margin-bottom: 60px;
+}
+
+.date {
   display: flex;
 }
 
@@ -100,4 +112,12 @@ body {
   width: 34px;
   height: 34px;
   object-fit: contain;
+}
+
+#add-btn:hover {
+  transform: scale(1.05);
+}
+
+#add-btn:active {
+  transform: scale(0.9);
 }
