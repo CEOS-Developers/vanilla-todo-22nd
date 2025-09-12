@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Vanilla Todo</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>        
+    </head>
+    <body>
+        <div class="app">
+            <header>
+                <h1>To Do List</h1>
+                <br /></br>
+                <p id="date"></p>
+                <h4><span id="current-task">0</span> tasks</h4>
+                <br /></br>
+                <input type="date" id="user-date">
+            </header>
+        </div>
+        
+
+        <div class="input-container">
+            <input type="text" id="task-input" placeholder="Add a new task">
+            <button id="add-task-button">enter
+                <!--<i class="fa fa-plus"></i>-->
+            </button>
+                
+        </div>
+
+        <div class="task-list">
+            <ul id="task-list"></ul>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
