@@ -6,8 +6,6 @@ const todoInput = document.getElementById("todo-input");
 const todoList = document.getElementById("todo-list");
 const prevButton = document.getElementById("prev");
 const nextButton = document.getElementById("next");
-const sidebar = document.getElementById("sidebar");
-const toggleButton = document.getElementById("sidebar-toggle");
 
 // 날짜를 키로 사용하기 위해서 포맷팅 필요
 function formatDate(date) {
@@ -148,8 +146,3 @@ addButton.addEventListener("click", addTodo);
 loadTodos();
 showDate();
 showTodos();
-
-// 사이드 바
-toggleButton.addEventListener("click", () => {
-  sidebar.classList.toggle("active");
-});
