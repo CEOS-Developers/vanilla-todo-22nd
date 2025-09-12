@@ -5,8 +5,6 @@ const taskList = document.getElementById('taskList');
 const currentTask = document.getElementById('currentTask');
 const userDate = document.getElementById('userDate');
 
-const today = new Date();
-dateElement.textContent = today.toDateString();
 
 let tasks = [];
 
