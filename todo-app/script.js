@@ -34,7 +34,7 @@ function showDate() {
 function showTodos() {
   todoList.innerHTML = "";
   const key = formatDate(currentDate); //키: 날짜
-  const todos = todosForEachDay[key]; //투두요소: 각 키에 할당되는 요소들
+  const todos = todosForEachDay[key] || []; //투두요소: 각 키에 할당되는 요소들
 
   todos.forEach((todo) => {
     todoList.appendChild(createTodoElement(todo, key)); //투두 만들어지면 append
@@ -57,18 +57,26 @@ function createTodoElement(todo, key) {
   completeButton.addEventListener("click", () => {
     li.classList.toggle("completed");
     todo.completed = !todo.completed;
+    saveTodos();
   });
 
   //삭제 버튼
   const deleteButton = document.createElement("button");
-  deleteButton.textContent = "X";
   deleteButton.className = "delete-btn";
+  const deleteIcon = document.createElement("img");
+  deleteIcon.src = "asset/trash.png";
+  deleteIcon.width = 18;
+  deleteIcon.height = 18;
+  deleteButton.appendChild(deleteIcon);
   deleteButton.addEventListener("click", () => {
     todosForEachDay[key] = todosForEachDay[key].filter((t) => t.id !== todo.id);
+    saveTodos();
     showTodos();
   });
 
+  //li에 투두요소 추가
   li.append(completeButton, todoText, deleteButton);
+  //완료 상태 보여주기
   if (todo.completed) {
     li.classList.add("completed");
   }
@@ -88,11 +96,12 @@ function addTodo() {
   const todo = { id: Date.now(), text, completed: false };
   todosForEachDay[key].push(todo);
 
+  saveTodos();
   showTodos();
   todoInput.value = ""; //입력창 비우기
 }
 
-addButton.addEventListener("click", addTodo);
+// 날짜 이동 버튼 및 투두와 날짜 재랜더링
 prevButton.addEventListener("click", () => {
   currentDate.setDate(currentDate.getDate() - 1);
   showDate();
@@ -104,5 +113,22 @@ nextButton.addEventListener("click", () => {
   showTodos();
 });
 
+//로컬스토리지 저장 및 불러오기
+function saveTodos() {
+  // 배열 문자열 변환 후 저장
+  localStorage.setItem("todosForEachDay", JSON.stringify(todosForEachDay));
+}
+
+function loadTodos() {
+  const data = localStorage.getItem("todosForEachDay");
+  if (data) {
+    // JSON 데이터 parsing -> 원래 배열로
+    todosForEachDay = JSON.parse(data);
+  }
+}
+
+//실행 시
+addButton.addEventListener("click", addTodo);
+loadTodos();
 showDate();
 showTodos();

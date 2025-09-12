@@ -1,4 +1,13 @@
+@font-face {
+  font-family: "Pretendard Variable";
+  src: url("asset/fonts/PretendardVariable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
 body {
+  font-family: "Pretendard Variable", sans-serif;
+  font-weight: 400;
   background-color: #ffd7e9;
   color: #202020;
 }
@@ -76,8 +85,16 @@ body {
 }
 
 .todo-list li .delete-btn {
-  margin-left: 5;
+  display: none;
+  margin-left: auto;
   border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.todo-list li:hover .delete-btn {
+  display: inline-block;
 }
 
 .todo-input {
