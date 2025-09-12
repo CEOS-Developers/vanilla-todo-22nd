@@ -1,0 +1,71 @@
+:root {
+  --bg: #f3f4f6;
+  --ink: #3b2f33;
+  --pill: #fff;
+  --accent: #0040ff;
+  --accent-ink: white;
+  --btn: #3b2f33;
+  --btn-ink: #ffe800;
+  --radius: 20px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+header {
+  padding: 24px 16px 12px;
+  text-align: center;
+}
+header h1 {
+  margin: 0 0 10px;
+  font-size: 36px;
+}
+
+.dateNav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  justify-content: center;
+}
+
+/* 입력 폼 */
+
+.formContainer {
+  max-width: 440px;
+  margin: 20px auto 10px;
+  background: var(--pill);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+}
+.formContainer input {
+  flex: 1; /* 남는 공간 사용 */
+  min-width: 0;
+  border: none;
+  outline: none;
+  padding: 12px 14px;
+  font-size: 16px;
+  border-radius: 18px;
+}
+.count {
+  margin-left: auto;
+  color: #6b7280;
+  font-weight: 600;
+}
+.submitButton {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 18px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 800;
+  cursor: pointer;
+}

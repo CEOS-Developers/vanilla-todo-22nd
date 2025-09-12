@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Vanilla To Do</title>
+    <link rel="STYLESHEET" href="styles.css" />
   </head>
 
   <body>
@@ -11,14 +12,14 @@
       <h2>To Do</h2>
     </header>
 
-    <nav>
-      <button class="dateButton" id="prev"></button>
-      <span id="currentDate"></span>
-      <button class="dateButton" id="next"></button>
+    <nav class="dateNav">
+      <button class="dateButton" id="prev">◀</button>
+      <span id="currentDate">몇 월 몇 일</span>
+      <button class="dateButton" id="next">▶</button>
     </nav>
 
     <main>
-      <form>
+      <form class="formContainer">
         <input
           id="todoInput"
           type="text"
