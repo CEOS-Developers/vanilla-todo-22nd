@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>todo list</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main class="appContainer">
+      <header class="appHeader">
+        <h1 class="appTitle">✔️TO DO LIST✔️</h1>
+        <div class="dateSelector">
+          <button class="dateNavBtn" id="prevDay">◀</button>
+          <div class="dateDisplay">
+            <input type="date" class="dateInput" id="dateInput" />
+            <p class="dateInfo" id="dateInfo">2024년 12월 19일 목요일</p>
+          </div>
+          <button class="dateNavBtn" id="nextDay">▶</button>
+        </div>
+      </header>
+
+      <section class="todoInputSection">
+        <form class="todoForm" id="todoForm">
+          <input
+            type="text"
+            class="todoInput"
+            id="todoInput"
+            placeholder="할일을 입력하세요"
+            maxlength="100"
+            required
+          />
+          <button type="submit" class="addButton">➕ 추가</button>
+        </form>
+      </section>
+
+      <section class="todoProgress">
+        <p class="progressText" id="progressText">오늘 할일 0개 중 0개 완료</p>
+      </section>
+
+      <section class="todoListSection">
+        <ul class="todoList" id="todoList"></ul>
+        <div class="emptyState" id="emptyState">
+          <p>📝 할일을 추가해보세요 📝</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
