@@ -17,10 +17,17 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 5px;
+  font-size: large;
 }
 
 .date {
   justify-content: center;
+}
+
+.count {
+  text-align: center;
+  font-weight: 300;
+  font-size: medium;
 }
 
 .todo-block {

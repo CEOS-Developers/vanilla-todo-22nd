@@ -30,7 +30,18 @@ function showDate() {
   dateElement.textContent = currentDate.toLocaleDateString("ko-KR", options);
 }
 
-//투두 객체
+// 투두 개수 보여주기 - 날짜 key에 해당하는 todo의 개수 중 completed 아닌 것만 골라서 개수
+function Counter() {
+  const key = formatDate(currentDate);
+  const todos = todosForEachDay[key] || [];
+  const todoCount = todos.filter((todo) => !todo.completed).length;
+  const countTodos = document.getElementById("counter"); // 여기서 가져오기
+  if (countTodos) {
+    countTodos.textContent = `오늘의 남은 할 일은 ${todoCount}개 입니다 !`;
+  }
+}
+
+//투두 요소
 function showTodos() {
   todoList.innerHTML = "";
   const key = formatDate(currentDate); //키: 날짜
@@ -39,6 +50,7 @@ function showTodos() {
   todos.forEach((todo) => {
     todoList.appendChild(createTodoElement(todo, key)); //투두 만들어지면 append
   });
+  Counter();
 }
 
 // 투두 요소 만들기 (내용 및 완료, 삭제)
@@ -58,6 +70,7 @@ function createTodoElement(todo, key) {
     li.classList.toggle("completed");
     todo.completed = !todo.completed;
     saveTodos();
+    Counter();
   });
 
   //삭제 버튼
@@ -98,7 +111,8 @@ function addTodo() {
 
   saveTodos();
   showTodos();
-  todoInput.value = ""; //입력창 비우기
+  todoInput.value = "";
+  Counter();
 }
 
 // 날짜 이동 버튼 및 투두와 날짜 재랜더링
