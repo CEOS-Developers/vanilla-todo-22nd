@@ -6,18 +6,21 @@
 }
 
 body {
+  justify-content: center;
   font-family: "Pretendard Variable", sans-serif;
   font-weight: 400;
   background-color: #ffd7e9;
   color: #202020;
 }
+
 .container {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding: 5px;
+  padding: 10px;
   font-size: large;
+  transition: margin-left 0.3s;
 }
 
 .date {
@@ -110,11 +113,10 @@ body {
   gap: 10px;
   background-color: #fffef1;
   position: fixed;
-  bottom: 0;
-  margin: 10px;
+  bottom: 10px;
   padding-top: 4px;
   height: 40px;
-  width: 80vw;
+  width: calc(90vw - 200px);
   border-radius: 30px;
 }
 
