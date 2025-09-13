@@ -18,10 +18,6 @@ const pad = (n) => String(n).padStart(2, "0");
 const toKey = (d) =>
   `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 
-function renderDate() {
-  pickDate.textContent = KDate(selected);
-}
-
 // localStorage
 const STORAGE_KEY = "todo";
 
@@ -50,9 +46,21 @@ const setList = (key, list) => {
   saveAll(all);
 };
 
+// render
+
+function renderDate() {
+  pickDate.textContent = KDate(selected);
+}
+
+function renderCount(list) {
+  countLabel.textContent = `${list.length}개`;
+}
+
 function renderList() {
   const key = toKey(selected);
   const list = getList(key);
+
+  renderCount(list);
 
   listEl.innerHTML = "";
 
@@ -79,8 +87,16 @@ function renderList() {
       renderList();
     });
 
-    li.append(cb, label, del);
-    listEl.appendChild(li);
+    // 삭제
+    del.addEventListener("click", () => {
+      const arr = getList(key);
+      arr.splice(idx, 1); // idx번째 요소 1개 삭제
+      setList(key, arr);
+      renderList();
+    });
+
+    li.append(cb, label, del); // 요소들을 추가해서
+    listEl.appendChild(li); //listEl에 붙이기
   });
 }
 
