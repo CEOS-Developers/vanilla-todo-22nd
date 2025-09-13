@@ -5,39 +5,73 @@ const taskList = document.getElementById('taskList');
 const currentTask = document.getElementById('currentTask');
 const userDate = document.getElementById('userDate');
 
+let todosByDate = JSON.parse(localStorage.getItem('todos') || '{}');
 
-let tasks = [];
+function renderTasks() {
+    const selectedDate = userDate.value;
+
+    taskList.innerHTML = "";
+
+    const tasksForSelectedDate = todosByDate[selectedDate] || [];
+
+    tasksForSelectedDate.forEach((task, index) => {
+        const li = document.createElement('li');
+
+        if(task.completed){
+            li.classList.add('completed');
+        }
+
+        li.dataset.index = index;
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = task.completed;
+
+        const span = document.createElement('span');
+        span.textContent = task.text;
+
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+
+        li.appendChild(checkbox);
+        li.appendChild(span);
+        li.appendChild(deleteButton);
+        taskList.appendChild(li);
+        });
+
+    updateTaskCount();
+}
 
 function updateTaskCount() {
-    currentTask.textContent = tasks.length;
+    const selectedDate = userDate.value;
+    const tasksSelectedDate = todosByDate[selectedDate] || [];
+
+    const uncompletedTasks = tasksSelectedDate.filter(task => !task.completed).length;
+    currentTask.textContent = uncompletedTasks;
 }
 
 function addTask() {
     const taskText = taskInput.value.trim();
+    const selectedDate = userDate.value;
 
     if (taskText === '') {
         alert('Please enter a task.');
         return;
     }
+    // 날짜의 배열이 없으면 빈 배열 생성
+    if (!todosByDate[selectedDate]) {
+        todosByDate[selectedDate] = [];
+    }
+    todosByDate[selectedDate].push({text: taskText, completed: false});
 
-    const li = document.createElement('li');
+    taskInput.value = "";
 
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
+    saveData();
+    renderTasks();
+}
 
-    const span = document.createElement('span');
-    span.textContent = taskText;
-
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Delete';
-    
-    li.appendChild(checkbox);
-    li.appendChild(span);
-    li.appendChild(deleteButton);
-    taskList.appendChild(li);
-
-    taskInput.value = '';
-    updateTaskCount();
+function saveData() {
+    localStorage.setItem('todos', JSON.stringify(todosByDate));
 }
 
 addTaskButton.addEventListener('click', addTask);
@@ -47,17 +81,22 @@ taskInput.addEventListener('keypress', function(event) {
     }
 });
 
+userDate.addEventListener('change', renderTasks);
+
 taskList.addEventListener('click', function(event) {
     const targetElement = event.target;
+    const li = targetElement.closest('li');
+
+    const selectedDate = userDate.value;
+    const taskIndex = li.dataset.index;
 
     if(targetElement.type === 'checkbox') {
-        const li = targetElement.closest('li');
-        li.classList.toggle('completed');
-        updateTaskCount();
+        todosByDate[selectedDate][taskIndex].completed = !todosByDate[selectedDate][taskIndex].completed;
     }
     if(targetElement.tagName === 'BUTTON') {
-        const li = targetElement.closest('li');
-        li.remove();
-        updateTaskCount();
+        todosByDate[selectedDate].splice(taskIndex,1);
     }
+
+    saveData();
+    renderTasks();
 });
