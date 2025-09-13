@@ -2,12 +2,33 @@
 <html lang="ko">
     <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>to do list</title>
+    <link rel="stylesheet" href="style.css">
     </head>
 <body>
-    <div>
-        저녁뭐먹지
-    </div>
+    <header>투두리스트</header>
+    <main id="main_contents">
+        <section>
+        <div>
+            <button id="date_prev"><</button>
+            <span id="date_span">날짜</span>
+            <button id="date_next">></button>
+        </div>
+        </section>
+<section>
+        <div id="input_container">
+            <input id="todo_input" type="text" placeholder="할 일을 적어주세요."/>
+            <button id="add_button">등록</button>
+        </div>
+</section>
+<section>
+        <div id="list_container">
+            <ul id="todo_list">
+            </ul>
+        </div>
+    </main>
+</section>
+    <script src="script.js"></script>
 </body>
-    
 </html>
