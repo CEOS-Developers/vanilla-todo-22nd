@@ -100,6 +100,7 @@ function renderList() {
   });
 }
 
+// 초기 렌더
 renderDate();
 renderList();
 
