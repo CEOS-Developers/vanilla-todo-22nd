@@ -11,10 +11,13 @@
       <header class="app-header">
         <h1>TO-DO</h1>
         <div class="date-nav">
-          <button id="prevDay">←</button>
-          <span id="todayLabel">9월 13일</span>
-          <button id="nextDay">→</button>
-          <button id="openCalendar">📅</button>
+          <button id="prevDay" aria-label="이전 날짜">←</button>
+          <span id="todayLabel">mm월 dd일</span>
+          <button id="nextDay" aria-label="다음 날짜">→</button>
+          <button id="openCalendar" type="button" aria-label="달력 열기">
+            📅
+          </button>
+          <input type="date" id="datePicker" class="visually-hidden" />
         </div>
       </header>
 
