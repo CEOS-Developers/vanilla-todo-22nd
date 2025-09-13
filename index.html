@@ -15,7 +15,9 @@
     <main>
         <div class="calendarContainer">
             <div class="calendarHeader">
-                <h2>2025년 9월</h2>
+                <button id="prevMonth">◀️</button>
+                <h2 id="currentMonth">2025년 9월</h2>
+                <button id="nextMonth">▶️</button>
             </div>
             <div class="weekdays">
                 <div>일</div>
@@ -34,7 +36,7 @@
         <div class="modalContent">
             <div class="modalHeader">
                 <h3 id="modalDate">날짜</h3>
-                <span class="close">&times;</span>
+                <span class="close">x</span>
             </div>
             <div class="modalBody">
                 <div id="todoList" class="todoList"></div>

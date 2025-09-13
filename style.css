@@ -48,8 +48,30 @@ main {
 
 /* 달력 헤더 */
 .calendarHeader {
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 20px;
+}
+
+.calendarHeader h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.calendarHeader button {
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.calendarHeader button:hover {
+    background: darkgreen;
 }
 
 /* 달력 요일 */
@@ -86,6 +108,11 @@ main {
     align-items: center;
     justify-content: center;
     border-radius: 10px;
+}
+
+.date.otherMonth {
+    color: #ccc;
+    background: #f8f9fa;
 }
 
 .date:hover {
