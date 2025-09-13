@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  background: orange; /* 전체 배경 컬러 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.app {
+  background: #fdf6f0;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.app-header h1 {
+  text-align: center;
+  margin: 0;
+}
+.date-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.input-section input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  background: #ddd;
+}
+.list-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #c8f74b;
+  padding: 8px;
+  border-radius: 8px;
+}
+.todo-item.done .title {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
