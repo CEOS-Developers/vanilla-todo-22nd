@@ -1,0 +1,266 @@
+@import url("https://cdn.jsdelivr.net/npm/pretendard/dist/web/static/pretendard.css");
+
+* {
+  font-family: "Pretendard", sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 헤더 스타일 */
+.header {
+    display: flex;
+    justify-content:  center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: green;
+    height: 60px;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    margin: 0;
+}
+
+/* 달력 스타일 */
+.calendarContainer {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+}
+
+/* 달력 헤더 */
+.calendarHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendarHeader h2 {
+    margin: 0;
+}
+
+.calendarHeader button {
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.calendarHeader button:hover {
+    background: darkgreen;
+}
+
+/* 달력 요일 */
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.weekdays div {
+    background: #f8f9fa;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+/* 달력 날짜 */
+.dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+}
+
+.date {
+    background: white;
+    border: 1px solid #e9ecef;
+    padding: 15px 5px;
+    text-align: center;
+    cursor: pointer;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.date.otherMonth {
+    color: #ccc;
+    background: #f8f9fa;
+}
+
+.date:hover {
+    background: #e3f2fd;
+}
+
+/* 오늘 날짜 초록색으로 표시 */
+.date.today {
+    background: green;
+    color: white;
+    font-weight: bold;
+}
+
+/* 할 일이 있는 날짜 표시 */
+.date.hasTodos {
+    background: #fff3cd;
+    border-color: #ffeaa7;
+}
+
+.date.hasTodos:hover {
+    background: #ffeaa7;
+}
+
+/* 모달 스타일 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modalContent {
+    background-color: white;
+    margin: 15% auto;
+    padding: 0;
+    border-radius: 10px;
+    width: 400px;
+}
+
+.modalHeader {
+    background: green;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modalHeader h3 {
+    margin: 0;
+}
+
+.close {
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close:hover {
+    opacity: 0.7;
+}
+
+.modalBody {
+    padding: 20px;
+}
+
+.inputContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.modalBody input {
+    width: 210px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+
+#addTodoBtn {
+    width: 80px;
+    padding: 12px;
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+
+/* 할 일 목록 스타일 */
+.todoList {
+    margin-bottom: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.todoItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #e9ecef;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: #f8f9fa;
+}
+
+.todoItem.completed .todoText {
+    text-decoration: line-through;
+    color: #6c757d; 
+}
+
+.todoItem.completed {
+    background: #e9ecef;
+}
+
+.todoText {
+    flex: 1;
+    text-align: left;
+}
+
+.todoActions {
+    display: flex;
+    gap: 5px;
+}
+
+.todoActions button {
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.todoActions button.complete {
+    background: green;
+}
+
+.todoActions button:hover {
+    opacity: 0.8;
+}

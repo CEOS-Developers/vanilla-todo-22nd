@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vainilla todo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <!-- <img src="menu-bar.svg" alt="menu-bar"> -->
+        <h1>CEOS vanilla-todo</h1>
+    </header>
+    <!-- 사이드바 2주차 과제때 추가 예정 -->
+    <aside></aside>
+    <main>
+        <div class="calendarContainer">
+            <div class="calendarHeader">
+                <button id="prevMonth">◀️</button>
+                <h2 id="currentMonth">2025년 9월</h2>
+                <button id="nextMonth">▶️</button>
+            </div>
+            <div class="weekdays">
+                <div>일</div>
+                <div>월</div>
+                <div>화</div>
+                <div>수</div>
+                <div>목</div>
+                <div>금</div>
+                <div>토</div>
+            </div>
+            <div class="dates" id="calendarDates"></div>
+        </div>
+    </main>
+    <!-- 할일 추가 모달 -->
+    <div id="todoModal" class="modal">
+        <div class="modalContent">
+            <div class="modalHeader">
+                <h3 id="modalDate">날짜</h3>
+                <span class="close">x</span>
+            </div>
+            <div class="modalBody">
+                <div id="todoList" class="todoList"></div>
+                <div class="inputContainer">
+                    <input type="text" id="todoInput" placeholder="할 일을 입력하세요">
+                    <button id="addTodoBtn">추가</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
