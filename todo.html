@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo</title>
+    <link rel="stylesheet" href="todo.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app-header">
+        <h1>TO-DO</h1>
+        <div class="date-nav">
+          <button id="prevDay" aria-label="이전 날짜">←</button>
+          <span id="todayLabel">mm월 dd일</span>
+          <button id="nextDay" aria-label="다음 날짜">→</button>
+          <button id="openCalendar" type="button" aria-label="달력 열기">
+            📅
+          </button>
+          <input type="date" id="datePicker" class="visually-hidden" />
+        </div>
+      </header>
+
+      <section class="input-section">
+        <input
+          id="todoInput"
+          type="text"
+          placeholder="오늘의 할 일을 적어보세요"
+        />
+      </section>
+
+      <section class="list-section">
+        <ul id="todoList"></ul>
+      </section>
+    </main>
+    <script src="todo.js"></script>
+  </body>
+</html>
