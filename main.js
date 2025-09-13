@@ -5,6 +5,9 @@ let todos = {};
 function showCalendar() {
     const calendarDates = document.getElementById('calendarDates');
     
+    // 기존 내용 지우고 다시 그리기
+    calendarDates.innerHTML = '';
+
     // 오늘 날짜 가져오기
     const today = new Date();
     const currentDay = today.getDate(); // 오늘이 몇 일인지 저장
@@ -20,16 +23,27 @@ function showCalendar() {
             dateElement.className = 'date today';
         }
 
+        // 할 일이 있는 날짜면 hasTodos 클래스 추가 -> 노란색 배경
+        if (todos[day] && todos[day].length > 0) {
+            dateElement.className += ' hasTodos';
+        }
+
         // 날짜 클릭 이벤트
         dateElement.addEventListener('click', function() {
             const todo = prompt(day + '일에 할 일을 입력하세요:');
+
             if (todo) {  // 입력한 내용이 있으면
+
                 if (!todos[day]) {  // 해당 날짜에 할 일 배열이 없으면 생성
                     todos[day] = [];
                 }
+
                 todos[day].push(todo);  // 할 일 추가
                 alert('할 일이 추가되었습니다!');
                 console.log('현재 할 일 목록:', todos);
+
+                // 할 일 추가되면 달력 다시 그리기
+                showCalendar();
             }
         });
 
