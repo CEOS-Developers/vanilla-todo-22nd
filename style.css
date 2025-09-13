@@ -91,3 +91,10 @@ main {
 .date:hover {
     background: #e3f2fd;
 }
+
+/* 오늘 날짜 초록색으로 표시 */
+.date.today {
+    background: green;
+    color: white;
+    font-weight: bold;
+}
