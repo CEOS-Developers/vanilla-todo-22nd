@@ -36,9 +36,10 @@ const calBtn = document.getElementById("openCalendar");
 const datePicker = document.getElementById("datePicker");
 const todayEl = document.getElementById("todayLabel");
 
-const form = document.getElementById("todoForm"); // 있을 수도, 없을 수도
+const form = document.getElementById("todoForm");
 const input = document.getElementById("todoInput");
 const listEl = document.getElementById("todoList");
+const listSection = document.querySelector(".list-section");
 
 function load() {
   const raw = localStorage.getItem(STORAGE_KEY);
@@ -73,6 +74,24 @@ function render() {
     `;
     listEl.appendChild(li);
   });
+  const items = listEl.querySelectorAll(".todo-item");
+  if (items.length > 5) {
+    // 앞의 5개 높이 + gap*4 만큼 max-height를 동적으로 계산
+    let max = 0;
+    for (let i = 0; i < 5; i++) {
+      max += items[i].getBoundingClientRect().height;
+    }
+    const cs = getComputedStyle(listEl);
+    const rowGap = parseFloat(cs.rowGap || cs.gap || 0);
+    max += rowGap * 4;
+
+    listSection.style.maxHeight = `${Math.ceil(max)}px`;
+    listSection.classList.add("scrolling");
+  } else {
+    // 5개 이하이면 원래 상태로
+    listSection.style.maxHeight = "";
+    listSection.classList.remove("scrolling");
+  }
 }
 
 function openNativeDatePicker() {
