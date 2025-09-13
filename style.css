@@ -32,7 +32,7 @@ main {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.header h3 {
+.header h1 {
     margin: 0;
 }
 
@@ -56,8 +56,6 @@ main {
 
 .calendarHeader h2 {
     margin: 0;
-    font-size: 24px;
-    color: #333;
 }
 
 .calendarHeader button {
@@ -199,18 +197,6 @@ main {
     font-size: 16px;
 }
 
-.modalButtons {
-    display: flex;
-}
-
-.modalButtons button {
-    flex: 1;
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-}
 
 #addTodoBtn {
     width: 80px;
@@ -223,9 +209,6 @@ main {
     margin-left: 10px;
 }
 
-.modalButtons button:hover {
-    opacity: 0.8;
-}
 
 /* 할 일 목록 스타일 */
 .todoList {

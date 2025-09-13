@@ -84,23 +84,7 @@ function closeModal() {
     document.getElementById('todoModal').style.display = 'none';
     selectedDay = null;
 }
-
-// 할 일 목록 보기 함수
-function showTodoList(day) {
-    if (!todos[day] || todos[day].length === 0) {
-        alert(day + '일에는 할 일이 없습니다.');
-        return;
-    }
     
-    let todoList = day + '일의 할 일 목록:\n\n';
-    todos[day].forEach((todo, index) => {
-        todoList += (index + 1) + '. ' + todo + '\n';
-    });
-    
-    alert(todoList);
-}
-
-
 // 달력 표시 함수
 function showCalendar() {
     const calendarDates = document.getElementById('calendarDates');
