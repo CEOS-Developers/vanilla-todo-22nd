@@ -108,3 +108,149 @@ main {
 .date.hasTodos:hover {
     background: #ffeaa7;
 }
+
+/* 모달 스타일 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modalContent {
+    background-color: white;
+    margin: 15% auto;
+    padding: 0;
+    border-radius: 10px;
+    width: 400px;
+}
+
+.modalHeader {
+    background: green;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modalHeader h3 {
+    margin: 0;
+}
+
+.close {
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close:hover {
+    opacity: 0.7;
+}
+
+.modalBody {
+    padding: 20px;
+}
+
+.inputContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.modalBody input {
+    width: 210px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.modalButtons {
+    display: flex;
+}
+
+.modalButtons button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#addTodoBtn {
+    width: 80px;
+    padding: 12px;
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.modalButtons button:hover {
+    opacity: 0.8;
+}
+
+/* 할 일 목록 스타일 */
+.todoList {
+    margin-bottom: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.todoItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #e9ecef;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: #f8f9fa;
+}
+
+.todoItem.completed .todoText {
+    text-decoration: line-through;
+    color: #6c757d; 
+}
+
+.todoItem.completed {
+    background: #e9ecef;
+}
+
+.todoText {
+    flex: 1;
+    text-align: left;
+}
+
+.todoActions {
+    display: flex;
+    gap: 5px;
+}
+
+.todoActions button {
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.todoActions button.complete {
+    background: green;
+}
+
+.todoActions button:hover {
+    opacity: 0.8;
+}

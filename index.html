@@ -9,7 +9,7 @@
 <body>
     <header class="header">
         <!-- <img src="menu-bar.svg" alt="menu-bar"> -->
-        <h3>CEOS vanilla-todo</h3>
+        <h1>CEOS vanilla-todo</h1>
     </header>
     <aside></aside>
     <main>
@@ -26,11 +26,25 @@
                 <div>금</div>
                 <div>토</div>
             </div>
-            <div class="dates" id="calendarDates">
-                
-            </div>
+            <div class="dates" id="calendarDates"></div>
         </div>
     </main>
+    <!-- 할일 추가 모달 -->
+    <div id="todoModal" class="modal">
+        <div class="modalContent">
+            <div class="modalHeader">
+                <h3 id="modalDate">날짜</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modalBody">
+                <div id="todoList" class="todoList"></div>
+                <div class="inputContainer">
+                    <input type="text" id="todoInput" placeholder="할 일을 입력하세요">
+                    <button id="addTodoBtn">추가</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>
